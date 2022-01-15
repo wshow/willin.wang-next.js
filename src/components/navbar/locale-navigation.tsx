@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import clsx from 'classnames';
+import { Languages } from '../../i18n.config';
 
 const MenuItem = ({ lang }: { [key: string]: string }) => {
   const { locale, asPath } = useRouter();
@@ -29,10 +30,9 @@ const MenuItem = ({ lang }: { [key: string]: string }) => {
       <Link href={asPath} passHref locale={lang}>
         <a
           className={clsx(
-            {
-              current: locale === lang
-            },
-            'text-secondary dark:text-primary'
+            locale === lang
+              ? 'text-primary dark:text-secondary'
+              : 'text-secondary dark:text-primary'
           )}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -50,7 +50,7 @@ const MenuItem = ({ lang }: { [key: string]: string }) => {
               strokeWidth='2'
               d='M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z'></path>
           </svg>
-          {lang}
+          {Languages[lang] || lang}
         </a>
       </Link>
     </motion.li>

@@ -10,7 +10,7 @@ module.exports = withPlugins([withPWA, withContentlayer], {
   reactStrictMode: true,
   i18n: {
     ...i18n,
-    localeDetection: false
+    localeDetection: true
   },
   pwa: {
     dest: 'public',
