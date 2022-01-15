@@ -26,14 +26,14 @@ const MenuItem = ({ lang }: { [key: string]: string }) => {
       }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}>
-      <Link
-        href={asPath}
-        passHref
-        locale={lang}
-        className={clsx({
-          current: locale === lang
-        })}>
-        <a className='text-secondary dark:text-primary'>
+      <Link href={asPath} passHref locale={lang}>
+        <a
+          className={clsx(
+            {
+              current: locale === lang
+            },
+            'text-secondary dark:text-primary'
+          )}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -58,7 +58,7 @@ const MenuItem = ({ lang }: { [key: string]: string }) => {
 };
 
 export const LocaleNavigation = () => {
-  const { locales } = useRouter();
+  const { locales = [] } = useRouter();
   return (
     <motion.ul
       className='absolute top-[100px] w-full px-8'
