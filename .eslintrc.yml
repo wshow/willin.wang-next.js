@@ -1,0 +1,13 @@
+root: true
+extends:
+  - '@willin'
+  - next/core-web-vitals
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended-requiring-type-checking
+  - prettier
+parserOptions:
+  project: ./tsconfig.json
+  extraFileExtensions:
+    - .mjs
+rules:
+  '@typescript-eslint/explicit-function-return-type': 0
